@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>MID2AGB and the Built-In Assembler</title>
+<link rel="stylesheet" href="backsdk4.css">
+</head>
+<body topmargin="0">
+<table class="buttonbarshade" cellspacing=0><tr><td>&nbsp;</td></tr></table>
+<table class="buttonbartable" cellspacing=0><tr id="hdr"><td class="runninghead" nowrap>
+Sappy 2006: Hacker Stuff</td></tr></table>
+
+<h1>MID2AGB and the Built-In Assembler</h1>
+
+<p>If you have the MID2AGB converter, you can use it to convert most MIDI files to the Sappy engine's native format. But this is only half the procedure. The resulting .S files must be converted to binary code. This can be done with most standards-compliant assemblers, such as the one used in GCC.</p>
+
+<p>Unfortunately, when using an assembler the pointers are all off and the Voice Group is undefined. We used to hand-edit the .S files in NotePad or whatever and add the intended location in ROM to all referenced pointers.</p>
+
+<img src="assembler.png" title="The built-in assembler" align="right">
+
+<p>Sappy 2006 packs a built-in assembler-like tool that's custom-built for the specific purpose of converting Sappy .S files. It doesn't generate a single byte of code, only song data. But it does automatically fix the pointers, and even recognizes the header bytes when it sees them so the new song header can automatically be linked into the Song Table!</p>
+
+<h4>Usage</h4>
+<p>First, you must copy or rename the file <code>musicplaydef.s</code> to <code>mplaydef.s</code>. For some reason, Nintendo gave it another name than is referenced in the song files, and copies to <code>\src</code> with the proper name. Make sure that <code>mplaydef.s</code> is in the same folder as your song files.</p>
+
+<p>After converting your song, picking a voicegroup offset from another song and determining where in the ROM you want to put the new one, open the assembler and fill in all three fields. The rest should be pretty much automatic.</p>
+
+<p>The assembler works only because Sappy song files have certain characteristics:
+<ul>
+	<li>No forward jumps, only backwards.</li>
+	<li>Words are used exclusively in jumps and the header.</li>
+	<li>The only <code>.global</code> is also the song name and therefore header label.</li>
+</ul>
+
+<div class="footer">Built on Tuesday, November 8th, 2005</div>
+
+</body>

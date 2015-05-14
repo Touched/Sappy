@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>OMFG HELP!</title>
+<link rel="stylesheet" href="backsdk4.css">
+</head>
+<body topmargin="0">
+<table class="buttonbarshade" cellspacing=0><tr><td>&nbsp;</td></tr></table>
+<table class="buttonbartable" cellspacing=0><tr id="hdr"><td class="runninghead" nowrap>
+Sappy 2006: OMFG HELP!</td></tr></table>
+
+<h1>OMFG HELP!</h1>
+
+<p>
+
+<dl>
+	<dt>
+		<b>When I try to play a certain song, I get a generic error message. What's up with that?</b>
+	</dt>
+	<dd>
+		The <code>EOT</code> command is not fully supported. A single note works fine, but full chords fail. The actual error that's <i>supposed</i> to appear is "Subscript out of Range", which doesn't help much either.<p>
+		I'm afraid there's little to be done here but to avoid playing these songs.<p>
+		Developers, if you have a song with passages like this:
+		<pre>.byte EOT, As2
+.byte      Cs3
+.byte      Fn3</pre>
+		...that wouldn't work. <code>TIE</code>s start fine, but <code>EOT</code>s spanning more than one note break things.<p>
+		Lacking .S files, Pokémon's "Caves and Darkness" song is a bit difficult to fix but you could look, in the song data, for <code>0xCE</code> and <code>0xCF</code> which are <code>EOT</code> and <code>TIE</code> respectively.
+	</dd>
+
+	<dt>
+		<b>My Sappy-enabled homebrew doesn't work in Sappy. The header pointers are all wrong!</b>
+	</dt>
+	<dd>
+		Since Classic VB only supports signed Longs/DWords, certain pointer ranges translate to a negative decimal number. I had this problem myself while working on the Demo Jukebox. I fixed this by moving all <code>SOUND_FILES</code> to the start of the rom until the pointer was in a correctly interpreted range:
+		<pre>$(TARGET_ELF): <b>$(SOUND_FILES)</b> $(.OFILES) Makefile $(DEPENDFILE)
+	@echo > $(MAPFILE)
+	$(CC) -g -o $@ <b>$(SOUND_FILES)</b> $(.OFILES) -Wl,$(LDFLAGS)</pre>
+		This is caused by small programs and the music data being put at the end of the rom by default.
+	</dd>
+
+	<dt>
+		<b>When using the MIDI driver, the instruments are all wrong!</b>
+	</dt>
+	<dd>
+		That's because the games don't need to adhere to the General MIDI standard. Any given instrument or "patch" as it's often called can have any sound. It's up to the sound and music artists of the game in question how much the game patches match up to the <a href="midistandard.html">General MIDI standard</a>. You can remap the patches with the <code>&lt;midimap&gt;</code> XML tag. Please refer to the Sappy.XML <a href="xml.html">documentation</a> for details.
+	</dd>
+
+	<dt>
+		<b>I have those media keys on my keyboard, but some don't work in Sappy like "Eject"!</b>
+	</dt>
+	<dd>
+		As of version 1.1, Sappy only listens to Play/Pause (which doesn't pause), Stop, Next, Previous, Volume Up and Volume Down. It's ignoring of Eject is quite natural. Each key must be coded in seperately.
+	</dd>
+
+	<dt>
+		<b>I'm running on a Japanese system, and the text is all garbled!</b>
+	</dt>
+	<dd>
+		It's not easy to get Japanese text rendered properly. We're still figuring this out. In the meantime, you can get a non-localized version where you got this.
+	</dd>
+
+</dl>
+
+</p>
+
+<div class="footer">Built on Wednesday, April 12th, 2006</div>
+
+</body>

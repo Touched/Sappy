@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>XML definition</title>
+<link rel="stylesheet" href="backsdk4.css">
+<style>
+	.lol
+	{
+		border: 0px;
+		background: 0;
+		padding: 0px 0px 0px 0px;
+		padding-left: 16px;
+	}
+</style>
+</head>
+<body topmargin="0">
+<table class="buttonbarshade" cellspacing=0><tr><td>&nbsp;</td></tr></table>
+<table class="buttonbartable" cellspacing=0><tr id="hdr"><td class="runninghead" nowrap>
+Sappy 2006: XML definition</td></tr></table>
+
+<h1>XML definition</h1>
+
+<p>
+<div class="lol">
+<img src="xml-element.png" title="Element">	Root element <code>SAPPY</code> &rarr; one or more <code>ROM</code> elements.
+	<div class="lol">
+	<img src="xml-element.png" title="Element">	Element <code>ROM</code> &rarr; one or more <code>PLAYLIST</code> elements, one optional <code>BLEEDINGEARS</code> element, one optional <code>MIDIMAP</code> element.
+		<div class="lol">
+		<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>CODE</code>, required.<br>
+		<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>NAME</code>, required.<br>
+		<img src="xml-pointer.png" title="Pointer Attribute"> Attribute <code>SONGTABLE</code>, pointer, required.<br>
+		<img src="xml-attribute.png" title="Attribute"> Attribute <code>SCREENSHOT</code>, file.<br>
+		<img src="xml-attribute.png" title="Attribute"> Attribute <code>CREATOR</code>.<br>
+		<img src="xml-attribute.png" title="Attribute"> Attribute <code>TAGGER</code>.<br>
+		<img src="xml-element.png" title="Element"> Element <code>PLAYLIST</code> &rarr; one or more <code>SONG</code> elements.
+			<div class="lol">
+			<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>NAME</code>, required.<br>
+			<img src="xml-attribute.png" title="Attribute"> Attribute <code>STEAL</code>, another <code>CODE</code>.
+				<div class="lol">
+				<img src="xml-element.png" title="Element">	Element <code>SONG</code> &rarr; the song's name.
+					<div class="lol">
+					<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>TRACK</code>, required.
+					</div>
+				</div>
+			</div>
+		<img src="xml-element.png" title="Element"> Element <code>BLEEDINGEARS</code> &rarr; one or more <code>INST</code> elements.
+			<div class="lol">
+			<img src="xml-element.png" title="Element">	Element <code>INST</code>.
+				<div class="lol">
+				<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>ID</code>, MIDI patch number, or...<br>
+				<img src="xml-attreq.png" title="Required Attribute"> Attributes <code>FROM</code> and <code>TO</code>, range of MIDI patch numbers.
+				</div>
+			</div>
+		<img src="xml-element.png" title="Element"> Element <code>MIDIMAP</code> &rarr; one or more <code>INST</code> elements, one or more <code>DRUM</code> elements.
+			<div class="lol">
+			<img src="xml-element.png" title="Element">	Element <code>INST</code>.
+				<div class="lol">
+				<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>FROM</code>, MIDI patch number, required.<br>
+				<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>TO</code>, MIDI patch number, required.<br>
+				<img src="xml-attribute.png" title="Attribute"> Attribute <code>TRANSPOSE</code>.<br>
+				<img src="xml-attnop.png" title="Unused Attribute"> Attribute <code>SECOND</code>. Not used in this version.<br>
+				<img src="xml-attnop.png" title="Unused Attribute"> Attribute <code>THIRD</code>. Not used in this version.<br>
+				</div>
+			<img src="xml-element.png" title="Element">	Element <code>DRUM</code>.
+				<div class="lol">
+				<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>FROM</code>, note, required.<br>
+				<img src="xml-attreq.png" title="Required Attribute"> Attribute <code>TO</code>, note, required.<br>
+				<img src="xml-attnop.png" title="Unused Attribute"> Attribute <code>KIT</code>. Not used in this version.</div>
+			</div>
+		</div>
+	</div>
+</div>
+</p>
+
+<div class="footer">Built on Wednesday, July 26th, 2006</div>
+
+</body>

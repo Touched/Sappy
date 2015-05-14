@@ -1,0 +1,850 @@
+/*
+' ______________
+'|  SAPPY 2006  |
+'|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+'| Interface code © 2006 by Kyoufu Kawa               |
+'| Player code © 200X by DJ ßouché                    |
+'| In-program graphics by Kyoufu Kawa                 |
+'| Thanks to SomeGuy, Majin Bluedragon and SlimeSmile |
+'|                                                    |
+'| This code is NOT in the Public Domain or whatever. |
+'| At least until Kyoufu Kawa releases it in the PD   |
+'| himself.  Until then, you're not supposed to even  |
+'| HAVE this code unless given to you by Kawa or any  |
+'| other Helmeted Rodent member.                      |
+'|____________________________________________________|
+' _____________
+'|  Resources  |
+'|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+'| Last update: September 28th, 2006                  |
+'|____________________________________________________|
+*/
+
+#define WITHENGLISH
+//#define WITHJAPANESE
+//#define WITHSPANISH
+//#define WITHDUTCH
+//#define WITHGERMAN
+
+#define CREATEPROCESS_MANIFEST_RESOURCE_ID 1
+#define RT_MANIFEST                     24
+#define CONTROL_PANEL_RESOURCE_ID       123
+
+1		RT_MANIFEST	"res/sappy.exe.manifest"
+
+BANNER				BITMAP	"res/banner.bmp"
+CREDITSFONT		BITMAP	"res/font.bmp"
+CREDITSLOGOS	BITMAP	"res/logos.bmp"
+TOOLICONS			BITMAP	"res/toolbar.bmp"
+STATUSICONS		BITMAP	"res/status.bmp"
+BARSAMPLES		BITMAP	"res/taskbars.bmp"
+NOPIC					BITMAP	"res/nopic.bmp"
+100						BITMAP	"res/skin.bmp"
+101						BITMAP	"res/skin2.bmp"
+102						BITMAP	"res/skin3.bmp"
+
+HAND					CURSOR	"res/hand.cur"
+
+APP						ICON		"res/sappy.ico"
+TWOKAYFIVE		ICON		"res/2k5.ico"
+BETA					ICON		"res/beta.ico"
+//PIMPHAT				ICON		"res/pimphat.ico"
+//IPOD					ICON		"res/ipod.ico"
+CLASSICSAPPY	ICON		"res/oldsapp.ico"
+//RIVERCITYDREW	ICON		"res/drew.ico"
+GLIDER				ICON		"res/glider.ico"
+
+//--------------------------------------------------------------------------------------------------------//
+
+#ifdef WITHENGLISH
+
+STRINGTABLE LANGUAGE 0x09, 0x00 //US English by Kyoufu Kawa
+BEGIN
+	10000	"<USPLZ>"
+
+	0   	"Sappy"
+	1   	"All supported pictures"
+	2   	"GBA Roms (*.gba)"
+	4   	"OK"
+	5   	"Cancel"
+	6   	"Exit"
+	7   	"Done!"
+
+	10  	"&File"
+		11 	"&Open"
+		12 	"&Exit"
+	20  	"&Tasks"
+	30  	"&Options"
+		31 	"Use &MIDI driver"
+		32 	"Use &Wave driver"
+		33 	"&Gameboy Mode"
+		34	"&Settings"
+		35	"&Import LST file"
+		36	"Seek by &Playlist"
+		38	"Select MIDI device..."
+		39	"Remap MIDI instruments..."
+	40 		"&Help"
+		41 	"&About"
+		42 	"&The Helmeted Rodent on-line"
+		43	"Contents"
+
+	50  	"Tasks"
+		51  	"Record to MIDI"
+		52  	"Export tracks"
+		53  	"Import tracks"
+		54  	"Export samples"
+		55		"Assemble song"
+	60  	"Information"
+		61  	"Unknown game"
+		62  	"Unknown code"
+		63  	"Unknown creator"
+		64  	"Unknown tagger"
+		65  	"Made by "
+		66  	"Tagged by "
+		67  	"Songtable: "
+
+	70		"Opens a ROM for playback."
+	71		"Exits the program."
+	72		"Play music with the old MIDI driver."
+	73		"Play music with the new Wave driver."
+	74		"Play all music with square waves."
+	75		"About the program."
+	76		"Visit our website!"
+
+	80  	"Save this song as a standard MIDI file."
+	81  	"Export one or more tracks in this song to files."
+	82  	"Replace one or more tracks in this song with tracks saved to file."
+	83  	"Export all sounds in this song to files."
+	84		"Assemble MID2AGB output to binary."
+
+	90		"Table"
+	91		"Header"
+	92		"Voices"
+	93		"Speed"
+
+	100 	"Playlist"
+	101 	"Song"
+	102 	"Please load a game..."
+	103 	"Location"
+	104 	"Note"
+	105 	"Looking for song list..."
+	106 	"Song #$INDEX"
+	107 	"Song #$INDEX - $NAME"
+	108 	"No playlists"
+	109 	"No songs"
+	110		"The auto-detector does not work on ""Golden Sun"" games.\n\nThese include:\n""Golden Sun""\n""Golden Sun - The Lost Age""\n""Mario Golf Advance Tour""\n\nSorry for the inconveniance."
+	111		"Loaded from seperate XML file."
+
+	204 	"Cannot find $XML. Create a new, blank version now?"
+	205 	"The game you loaded (gamecode $CODE) is not known.\n\nWould you like to scan for the song table now?"
+	206 	"Couldn't find the song table. This game probably doesn't use M4A at all, or at least a different version."
+	207 	"Found the song table at 0x$TBL. Saving bare bones entry to XML file for quick reloading..."
+	208 	"Error in the XML file!\n\n$ERROR\n$CAUSE\n\nPlease correct this error and try again."
+	209		"Invalid gamecode - it's all zeroes!"
+	210		"Enter game's name:"
+	211		"Enter creator's name:"
+	212		"Enter tagger's name:"
+
+	1000	"Too cool!"
+	1001	"Sappy 2006\n----------\nBy Kyoufu Kawa\n\nBased on the original player\nby Andrew Lim (DJ Bouche)\n\nContains portions of the following\ntools previously written by Kawa:\n\ Maple (sound dumper and songtable scanner)\n\ Juicer (track dumper/inserter)\n\nThis product includes software\ndeveloped by vbAccelerator.\n\n\nThanks and greetings to:\n\ Drag     \n\ Tony     \n\ Rick     \n\ Matt     \n\ Prime    \n\ Someguy  \n\ Jeff     \n\ Sakaki   \n\ Hapi-san \n\ Shii     \n\ Kotoko   \n\ Coke Lite\nand Mr. McMahon.\n\nQuote of the Update:                                 \n<FyNXeR> Pardon my spelling... but I'm from Sweden   \n<sumbody> pardon my accent, i am from southeast asia \n<DrMonkey> pardon my shotgun, i'm from west virginia \n\nhttp://helmetedrodent.kickassgamers.com\nhttp://board.acmlm.org                 \nhttp://www.vbaccelerator.com           \n\n<logos>"
+	1002	"About"
+
+	2000	"Import Tracks"
+	2001	"Select the tracks you want to import:"
+	2002	"Select where you want to save the tracks:"
+	2003	"Header"
+	2004	"First track"
+	2005	"Track offsets"
+	2006	"The second track will be saved right after the first track. Headers are copied."
+	2007	"You must select at least one track."
+	2008	"You must specify a starting track offset."
+	2009	"You must specify a header offset."
+	2010	"Preparing to import tracks..."
+	2011	"Importing $FILE to $TO..."
+	2012	"Saving header..."
+	2013	"Done. Do you want to set the proper entry in the Song Table?"
+	2016	"Voicegroup"
+
+	3000	"Export Tracks"
+	3001	"Select the tracks you want to export:"
+	3002	"Select where you want to save the tracks:"
+	3003	"Tags"
+	3004	"Any instance of $T is replaced by the current track's number. Likewise, $P is replaced by the track's base pointer."
+	3005	"You must select at least one track."
+	3006	"You must enter a file name pattern."
+	3007	"Preparing to dump tracks..."
+	3008	"Dumping track $TRACK..."
+	3009	"Dumping to $FILE..."
+	3010	"Skipping track $TRACK."
+	3011	"You must specify a full file pattern."
+
+	4000	"Assemble .S file"
+	4001	".S file name"
+	4002	"Base destination offset"
+	4003	"Voicegroup offset"
+	4004	"Assemble that ugly thing!"
+	4005	"You must specify a base offset."
+	4006	"You must specify a voicegroup offset."
+	4007	"You must specify a file name."
+
+	5000	"MIDI Mapper"	// Title
+	5001	"Instruments" // --- Tabs
+	5002	"Drums"				// -/
+	5003	"Remap to"		// ---- Headers
+	5004	"Instrument"	// --/
+	5005	"Drum Key"		// -/
+	5006	"Transpose"
+	5007	"Listen"			// --- Buttons
+	5008	"Reset"				// -/
+
+	6000	"Settings"
+	6001	"ROM database"
+	6002	"Song repeats"
+	6003	"(0 for infinite)"
+	6004	"Reload last ROM on startup"
+	6005	"Now Playing"
+	6006	"Write Now Playing info for mIRC script"
+	6007	"Send Now Playing info to MSN Messenger"
+	6008	"Interface"
+	6009	"Disable annoying sounds"
+	6010	"Force nice task bar"
+	6011	"Playback"
+	6012	"Skin"
+	6013	"Hue"
+	6014	"Saturation"
+	6015	"Hide task bar (classic mode)"
+
+	7000	"Export samples"
+	7001	"Save as"
+	7002	"File name pattern"
+	7003	"File formats"
+	7004	"File name patterns" //the frame
+	7005	"Any instance of $I is replaced by the instruments voice number. Likewise, $P is replaced by the instrument's pointer."
+
+	7010	"Raw wave files (*.raw)"
+	7011	"Windows wave files (*.wav)"
+	7012	"ImpulseTracker samples (*.its)"
+	7013	"Sappy source files (*.s)"
+	7020	"RAW files contain raw, unprocessed PCM sound data and nothing else. Not even a header. They cannot loop."
+	7021	"WAV files are like RAW, but have headers and can be played as-is without tools. They cannot loop."
+	7022	"ITS files can be used in ModPlug Tracker and retain the sample's original loop point."
+	7023	"Sappy source files are what the Sappy toolkit uses. They are in ARM Assembly, but contain no actual code at all, only data and directives."
+	7030	"#MAPLE EXPORTED SAMPLE - PLEASE CHECK THE HEADER VALUES!" //file header for .S
+
+	8000	"Analyzing song..."
+	8001	"Filling sample pool..."
+	8002	"Finishing..."
+
+	9000	"Select MIDI device"
+	9001	"Hardware port"
+	9002	"Synthesizer"
+	9003	"Squarewave Synth"
+	9004	"FM Synth"
+	9005	"MS Midi Mapper"
+	9006	"HW Wavetable Synth"
+	9007	"Software Synth"
+END
+
+#endif
+
+//--------------------------------------------------------------------------------------------------------//
+
+#ifdef WITHJAPANESE
+#include "sappy text japanese.jtxt"
+#endif
+
+//--------------------------------------------------------------------------------------------------------//
+
+#ifdef WITHSPANISH
+
+STRINGTABLE LANGUAGE 0x0A, 0x00 //Spanish by Baro
+BEGIN
+	10000	"<SPLZ>"
+
+	0   	"Sappy"
+	1   	"Todas las imágenes soportadas"
+	2   	"Roms GBA (*.gba)"
+	4   	"Aceptar"
+	5   	"Cancelar"
+	6   	"Salir"
+	7   	"¡Hecho!"
+
+	10  	"&Archivo"
+		11 	"A&brir"
+		12 	"&Salir"
+	20  	"&Tareas"
+	30  	"&Opciones"
+		31 	"Usar drivers de &MIDI"
+		32 	"Usar drivers de &Wave"
+		33 	"&Gameboy Mode"
+		34	"&Preferencias"
+		35	"&Importar archivo LST"
+		36	"Buscar por &Lista de Reproducción"
+		38	"Selecciona dispositivo midi"
+		39	"Cambiar valores de instrumentos MIDI"
+	40  	"&Help"
+		41 	"&Acerca de"
+		42 	"The &Helmeted Rodent en la red"
+		43	"Contenidos"
+
+	50  	"Tareas"
+		51 	"Grabar a MIDI"
+		52 	"Exportar pistas"
+		53 	"Importar pistas"
+		54 	"Exportar muestras"
+		55	"Montar canción"
+	60  	"Información"
+		61 	"Juego desconocido"
+		62 	"Código desconocido"
+		63 	"Creador desconocido"
+		64 	"Etiquetador desconocido"
+		65 	"Hecho por "
+		66 	"Etiquetado por "
+		67 	"Tabla de Canciones: "
+
+	70		"Abre el rom para un playback."
+	71		"Sale del programa."
+	72		"Reproduce música usando el driver MIDI antiguo."
+	73		"Reproduce música usando el driver Wave nuevo."
+	74		"Reproduce toda la música con square waves."
+	75		"Sobre el programa."
+	76		"¡Visita nuestra web!"
+
+	80  	"Guarda esta canción como una canción MIDI estándar."
+	81  	"Exportar una o más pistas en esta canción a archivos."
+	82  	"Reemplaza una o más pistas en esta canción con pistas guardadas en un archivo."
+	83		"Exportar todos los sonidos de esta canción a archivos."
+	84		"Montar salida MID2AGB a binario."
+
+	90		"Tabla"
+	91		"Cabecera"
+	92		"Voces"
+	93		"Velocidad"
+
+	100 	"Lista de repr."
+	101 	"Canción"
+	102 	"Por favor carga un juego..."
+	103 	"Localización"
+	104 	"Nota"
+	105 	"buscando lista de canciones..."
+	106 	"Canción #$INDEX"
+	107 	"Canción #$INDEX - $NAME"
+	108 	"No hay lista"
+	109 	"No hay canciones."
+	110		"El auto detector no funiona con los juegos d ela serie ""Golden Sun"".\n\nEsto incluye:\n""Golden Sun""\n""Golden Sun - The Lost Age (La Edad Perdida)""\n""Mario Golf Advance Tour""\n\nLamentamos cualquier inconveniente."
+	111		"Cargado de un archivo XML separado."
+
+	204 	"No se encuentra $XML. ¿Deseas crear una nueva versión en blanco?"
+	205 	"El juego que has cargado (gamecode $CODE) no se conoce.\n\n¿Quieres escanear el rom en busca de la tabla de canciones?"
+	206 	"No se pudo encontrar la tabla de canciones. Probablemente este juego no use M4A, o como mínimo use una versión diferente."
+	207 	"Se encontró la tabla de canciones en 0x$TBL. Guardando entradas del esqueleto a una archivo XML para una rápida carga."
+	208 	"¡Error en el archivo XML!\n\n$ERROR\n$CAUSE\n\nPor favor, corrige este error y vuelve a intentarlo."
+	209		"Código del juego no válido, ¡es todo ceros!"
+	210		"Introduce nombre del juego:"
+	211		"Introduce nombre del creador:"
+	212		"Introduce nombre del etiquetador:"
+
+	1000	"¡Demasiado genial!"
+	1001	"Sappy 2006\n----------\nPor Kyoufu Kawa\n\nBasado en el reproductor original\nde Andrew Lim (DJ Bouche)\n\nContiene partes de las siguientes\nherramientas anteriormente escritas por Kawa:\n\ Maple (exportador de sonido y escaneador de tablas)\n\ Juicer (exportador/importador de pistas)\n\nEste producto incluye software\ndesarrollado por vbAcelerator.\n\n\nGracias y saludos a:\n\ Drag     \n\ Tony     \n\ Matt     \n\ Prime    \n\ Someguy  \n\ Jeff     \n\ Sakaki   \n\ Hapi-san \n\ Taco     \n\ Shii     \n\ Kotoko   \n\ Coke Lite\ny Mr. McMahon.\n\nCita de la actualización:                            \n<FyNXeR> Perdonad mi ortografía, es que soy de Suecia\n<sumbody> Perdonad mi acento, soy del sudeste de Asia\n<DrMonkey> Perdonad mi escopeta, soy de West Virginia\n\nhttp://helmetedrodent.kickassgamers.com\nhttp://board.acmlm.org                 \nhttp://www.vbaccelerator.com           \n\n<logos>"
+	1002	"Acerca de"
+
+	2000	"Importar pistas"
+	2001	"Selecciona las pistas que quieres importar:"
+	2002	"Selecciona dónde quieres guardar las pistas:"
+	2003	"Cabecera"
+	2004	"Primera pista"
+	2005	"Offsets de las pistas"
+	2006	"La segunda pista se guardará justo después de la primera. Las cabeceras se copian."
+	2007	"Debes seleccionar al menos una pista."
+	2008	"Debes especificar un offset de la pista que empieza."
+	2009	"Debes especificar un offset de la cabecera."
+	2010	"Preparandose para importar pistas..."
+	2011	"Importando $FILE a $TO..."
+	2012	"Guardando cabecera..."
+	2013	"Hecho. ¿Deseas determinar la entrada apropiada en la tabla de canciones?"
+	2016	"Grupo de voz"
+
+	3000	"Exportar pistas"
+	3001	"Selecciona las pistas que quieres exportar.:"
+	3002	"Selecciona dónde quieres guardar las pistas:"
+	3003	"Etiquetas"
+	3004	"Todos los $T serán reemplazados por el número de la pista actual. De este modo, $P será reemplazado por el puntero (pointer) base de la pista."
+	3005	"Debes seleccionar al menos una pista."
+	3006	"Debes introducir un patrón de nombre de archivo."
+	3007	"Preparandose para exportar las pistas..."
+	3008	"Exportando pista $TRACK..."
+	3009	"Exportando a $FILE..."
+	3010	"Saltandose $TRACK."
+	3011	"Debes especificar un patrón de archivo completo."
+
+	4000	"Montar archivo *.S"
+	4001	"Nombre de archivo *.S"
+	4002	"Offset de destino base."
+	4003	"Offset del grupo de voz"
+	4004	"Montar esa ¡cosa fea!"
+	4005	"Debes especificar un offset base."
+	4006	"Debes especificar un offset de grupo de voz."
+	4007	"Debes especificar un nombre de archivo."
+
+	5000	"MIDI Mapper"
+	5001	"Instrumentos"
+	5002	"Percusión"
+	5003	"Cambiar a"
+	5004	"Instrumento"
+	5005	"Clave de percusión"
+	5006	"Transponer"
+	5007	"Escuchar"
+	5008	"Restaurar"
+
+	6000	"Preferencias"
+	6001	"Base de datos de ROMs"
+	6002	"Repeticiones de la canción."
+	6003	"(0 para infinito)"
+	6004	"Recargar el último ROM al iniciar."
+	6005	"Reproduciendo"
+	6006	"Escribe información de 'reproduciendo' para el script mIRC."
+	6007	"Envía la información de 'reproduciendo' a MSN messenger."
+	6008	"Interfaz"
+	6009	"Desactivar sonidos desconcertantes"
+	6010	"Forzar barra de tareas buena."
+	6011	"Playback"
+	6012	"Apariencia"
+	6013	"Matiz"
+	6014	"Saturación"
+	6015	"Ocultar barra de tareas (modo clásico)"
+
+	7000	"Exportar muestras."
+	7001	"Guardar como..."
+	7002	"Patrón de nombre de archivo."
+	7003	"Formato de archivo."
+	7004	"Patrón de nombre de archivo" //the frame
+	7005	"Cualquier ejemplo de $I se reemplazará por el número de voz de los instrumentos. Asimismo, $P se reemplazará por el puntero (pointer) del instrumento."
+
+	7010	"Archivos Raw wave (*.raw)"
+	7011	"Archivos Windows wave (*.wav)"
+	7012	"Muestras ImpulseTracker (*.its)"
+	7013	"Archivo de recurso Sappy (*.s)"
+	7020	"Los archivos RAW contienen sonido PCM crudo, sin procesar, y nada más. Nisiquiera una cabecera. No pueden hacer repeticiones."
+	7021	"Los archivos WAV son como los RAW, pero tienen cabeceras y pueden reproducirse sin herramientas. No pueden hacer repeticiones."
+	7022	"Los archivos ITS pueden usarse en ModPlug Tracker y mantienen el punto de repetición d ela muestra original."
+	7023	"Los archivos de recurso Sappy es lo que usa el kit de herramientas Sappy. Están montados en ARM Assembly, pero no contienen un verdadero código, sólo datos y directrices."
+	7030	"#MUESTRA EXPORTADA DE MAPLE - POR FAVOR, ¡COMPRUEBA LOS VALORES DE LA CABECERA!" //file header for .S
+
+	8000	"Analizando canción..."
+	8001	"Llenando piscina de muestras..."
+	8002	"Acabando..."
+
+	9000	"Selecciona dispositivo midi"
+	9001	"Puerto de hardware"
+	9002	"Sintetizador"
+	9003	"Sintetizador squarewave"
+	9004	"Sintetizador FM"
+	9005	"MS Midi Mapper"
+	9006	"Sintetizador HW Wavetable"
+	9007	"Sintetizador de software"
+
+END
+
+#endif
+
+//--------------------------------------------------------------------------------------------------------//
+
+#ifdef WITHDUTCH
+
+STRINGTABLE LANGUAGE 0x13, 0x01 //Dutch by SlimeSmile the Weirdo and Kyoufu Kawa
+BEGIN
+	10000	"<NLPLZ>"
+
+	0   	"Sappy"
+	1   	"Alle ondersteunde grafische formaten"
+	2   	"GBA Roms (*.gba)"
+	4   	"OK"
+	5   	"Annuleren"
+	6   	"Afsluiten"
+	7   	"Gereed!"
+
+	10  	"&Bestand"
+		11 	"&Openen"
+		12 	"&Afsluiten"
+	20  	"&Taken"
+	30  	"&Opties"
+		31 	"Gebruik &MIDI-stuurprogramma"
+		32 	"Gebruik &Wave-stuurprogramma"
+		33 	"&Gameboy Modus"
+		34	"&Instellingen"
+		35	"Importeer &LST-bestand"
+		36	"Zoek door &Afspeellijst"
+		38	"Selecteer MIDI-apparaat..."
+		39	"Herleid MIDI-instrumenten..."
+	40  	"&Help"
+		41 	"&Over"
+		42 	"&The Helmeted Rodent online"
+		43	"Inhoud"
+
+	50  	"Taken"
+		51  	"Opnemen als MIDI"
+		52  	"Sporen exporteren"
+		53  	"Sporen importeren"
+		54  	"Geluiden exporteren"
+		55		"Stel lied samen"
+	60  	"Informatie"
+		61  	"Onbekend spel"
+		62  	"Onbekende code"
+		63  	"Onbekende maker"
+		64  	"Onbekende labeler"
+		65  	"Gemaakt door "
+		66  	"Gelabeld door "
+		67  	"Liederentabel: "
+
+	70		"Opent een af te spelen ROM."
+	71		"Sluit het programma af."
+	72		"Speel muziek af met het oude MIDI-stuurprogramma."
+	73		"Speel muziek af met het nieuwe Wave-stuurprogramma."
+	74		"Speel alle muziek af met pulsgolven."
+	75		"Over het programma."
+	76		"Bezoek onze website!"
+
+	80  	"Sla dit lied op als een standaard MIDI-bestand."
+	81  	"Exporteer één of meer sporen in dit lied naar bestanden."
+	82  	"Vervang één of meer sporen in dit lied door sporen uit bestanden."
+	83  	"Exporteer alle geluiden in dit lied naar bestanden."
+	84		"Stel MID2AGB uitvoer naar binair bestand samen."
+
+	90		"Tabel"
+	91		"Header"
+	92		"Stemmen"
+	93		"Snelheid"
+
+	100 	"Afspeellijst"
+	101 	"Lied"
+	102 	"Laadt alstublieft een spel..."
+	103 	"Locatie"
+	104 	"Noot"
+	105 	"Bezig met zoeken naar liederenlijst..."
+	106 	"Lied #$INDEX"
+	107 	"Lied #$INDEX - $NAME"
+	108 	"Geen afspeellijst"
+	109 	"Geen liederen"
+	110		"De auto-detector werk niet met ""Golden Sun"" spellen.\n\nDeze zijn onder andere:\n""Golden Sun""\n""Golden Sun - The Lost Age""\n""Mario Golf Advance Tour""\n\nSorry voor het ongemak."
+	111		"Gegevens geladen uit los XML bestand."
+
+	204 	"Kan $XML niet vinden. Nu een nieuwe, blanco versie maken?"
+	205 	"Het spel dat u heeft geladen (gamecode $CODE) is onbekend.\n\nWilt u nu zoeken naar de liederentabel?"
+	206 	"Kan de liederentabel niet vinden. Dit spel gebruikt waarschijnlijk helemaal geen M4A, of een onbekende versie hiervan."
+	207 	"De liederentabel is gevonden op 0x$TBL. Er wordt een ingang in het XML-bestand gemaakt voor een snelle heropening..."
+	208 	"Fout in het XML-bestand!\n\n$ERROR\n$CAUSE\n\nVerbeter deze fout en probeer het opnieuw."
+	209		"Ongeldige spelcode - niets dan nullen!"
+	210		"Voer de naam van het spel in:"
+	211		"Voer de naam van de maker in:"
+	212		"Voer de naam van de labeler in:"
+
+	1000	"Te gek!"
+	1001	"Sappy 2006\n----------\nDoor Kyoufu Kawa\n\nGebaseerd op de originele speler\ndoor Andrew Lim (DJ Bouché)\n\nBevat delen van de volgende hulpprogramma's,\nvoorheen geschreven door Kawa:\n\ Maple (geluidsexport / tabelzoeker)\n\ Juicer (sporenexport / import)\n\nDit product bevat programmacode\nontwikkeld door vbAccelerator.\n\n\nDankwoorden en groeten aan:\n\ Drag     \n\ Tony     \n\ Matt     \n\ Prime    \n\ Someguy  \n\ Jeff     \n\ Sakaki   \n\ Hapi-san \n\ Taco     \n\ Shii     \n\ Kotoko   \n\ Coke Lite\nen Mr. McMahon.\n\nCitaat van de Update:                                \n<FyNXeR> Vergeef mæ spelling... kom uit Zweden       \n<sumbody> vergeef mæ accent, ik kom uit zuidoost azië\n<DrMonkey> vergeef mæ geweer, kom uit west virginia  \n\nhttp://helmetedrodent.kickassgamers.com\nhttp://board.acmlm.org                 \nhttp://www.vbaccelerator.com           \n\n<logos>"
+	1002	"Over"
+
+	2000	"Importeer Sporen"
+	2001	"Selecteer de sporen om te importeren:"
+	2002	"Selecteer waar de sporen opgeslagen moeten worden:"
+	2003	"Header"
+	2004	"Eerste spoor"
+	2005	"Beginpunten van sporen"
+	2006	"Het tweede spoor wordt direct na het eerste spoor opgeslagen. Header wordt gekopieerd."
+	2007	"Selecteer minimaal één spoor."
+	2008	"Specificeer een beginpunt van een spoor."
+	2009	"Specificeer een beginpunt voor header."
+	2010	"Bezig met voorbereiden op het importeren van tracks..."
+	2011	"Bezig met het importeren van $FILE naar $TO..."
+	2012	"Bezig met het opslaan van header..."
+	2013	"Gereed. Wilt u de juiste ingang in de liederentabel instellen?"
+	2016	"Stemgroep"
+
+	3000	"Sporen exporteren"
+	3001	"Selecteer de sporen om te exporteren:"
+	3002	"Selecteer waar de sporen opgeslagen moeten worden:"
+	3003	"Labels"
+	3004	"Iedere keer dat $T voorkomt, wordt dit vervangen door het nummer van het huidige spoor. Respectievelijk wordt $P vervangen door de verwijzing naar het spoor."
+	3005	"Selecteer minimaal één spoor."
+	3006	"Voor een patroon voor de bestandsnamen in."
+	3007	"Bezig met voorbereiden van het exporteren van sporen..."
+	3008	"Bezig met exporteren van spoor $TRACK..."
+	3009	"Bezig met exporteren naar $FILE..."
+	3010	"Spoor $TRACK wordt overgeslagen."
+	3011	"Voer een volledig bestandsnaam-patroon in."
+
+	4000	"Stel .S bestand samen"
+	4001	".S bestandsnaam"
+	4002	"Beginpunt basisdoel"
+	4003	"Beginpunt stemgroep"
+	4004	"Stel dat kreng samen!"
+	4005	"Je moet een basisdoel opgeven."
+	4006	"Je moet een stemgroep opgeven."
+	4007	"Je moet een bestand opgeven."
+
+	5000	"MIDI Mapper"	// Title
+	5001	"Instrumenten"// --- Tabs
+	5002	"Percussie" 	// -/
+	5003	"Herleid naar"// ---- Headers
+	5004	"Instrument"	// --/
+	5005	"Percussie"		// -/
+	5006	"Transponeer"
+	5007	"Luister"			// --- Buttons
+	5008	"Reset"				// -/
+
+	6000	"Instellingen"
+	6001	"ROM gegevensbestand"
+	6002	"Liedherhalingen"
+	6003	"(0 voor eindeloos)"
+	6004	"Herlaad de vorige ROM bij het opstarten"
+	6005	"Now Playing"
+	6006	"Schrijf Now Playing informatie voor mIRC script"
+	6007	"Stuur Now Playing informatie naar MSN Messenger"
+	6008	"Interface"
+	6009	"Schakel irritante geluidjes uit"
+	6010	"Altijd mooie takenbalk"
+	6011	"Afspelen"
+	6012	"Skin"
+	6013	"Tint"
+	6014	"Verzadiging"
+	6015	"Verberg takenbalk (klassieke modus)"
+
+	7000	"Exporteer geluiden"
+	7001	"Opslaan als"
+	7002	"Bestandsnaampatroon"
+	7003	"Bestandsformaten"
+	7004	"Bestandsnaampatronen" //the frame
+	7005	"Iedere keer dat $T voorkomt, wordt dit vervangen door het nummer van het huidige instrument. Respectievelijk wordt $P vervangen door de verwijzing naar het instrument."
+
+	7010	"Ruwe wave-bestanden (*.raw)"
+	7011	"Windows wave-bestanden (*.wav)"
+	7012	"ImpulseTracker geluiden (*.its)"
+	7013	"Sappy bronbestanden (*.s)"
+	7020	"RAW-bestanden bevatten ruwe, onbewerkte PCM geluidsgegevens en niets anders. Niet eens een headerblok. Herhalen is niet mogelijk."
+	7021	"WAV-bestanden zijn als RAW, maar hebben een headerblok en kunnen zonder meer afgespeeld worden zonder hulpprogramma's. Herhalen is niet mogelijk."
+	7022	"ITS-bestanden kunnen worden gebruikt in ModPlug Tracker en handhaven de herhalingsinformatie van het geluid."
+	7023	"Sappy bronbestanden zijn wat de Sappy hulpprogramma's gebruiken. Ze zijn in ARM Assembly, maar bevatten helemaal geen feitelijke code, alleen gegevens en instructies."
+	7030	"#DOOR MAPLE GEËXPORTEERD GELUID - CONTROLEER DE WAARDEN IN DE HEADER!" //file header for .S
+
+	8000	"Analyseren lied..."
+	8001	"Vullen geluiden-pool..."
+	8002	"Afronden..."
+
+	9000	"Selecteer MIDI-apparaat"
+	9001	"Hardware poort"
+	9002	"Synthesizer"
+	9003	"Squarewave Synth"
+	9004	"FM Synth"
+	9005	"MS Midi Mapper"
+	9006	"HW Wavetable Synth"
+	9007	"Software Synth"
+
+END
+
+#endif
+
+//--------------------------------------------------------------------------------------------------------//
+
+#ifdef WITHGERMAN
+
+STRINGTABLE LANGUAGE 0x07, 0x01 //German by Blackhole89
+BEGIN
+	10000	"<DPLZ>"
+
+	0   	"Sappy"
+	1   	"Alle unterstützten Bilder"
+	2   	"GBA-ROMs (*.gba)"
+	4   	"OK"
+	5   	"Abbruch"
+	6   	"Exit"
+	7   	"Fertig!"
+
+	10  	"&Datei"
+		11 	"&Öffnen"
+		12 	"&Beenden"
+	20  	"&Tasks"
+	30  	"&Optionen"
+		31 	"&MIDI-Treiber benutzen"
+		32 	"&Wave-Treiber benutzen"
+		33 	"&Gameboy-Modus"
+		34	"&Einstellungen"
+		35	"&LST-Datei importieren"
+		36	"Über &Playlist suchen"
+		38	"MIDI-Gerät auswählen"
+		39	"MIDI-Instrumente umbelegen..."
+	40 		"&Hilfe"
+		41 	"&Über dieses Programm"
+		42 	"&The Helmeted Rodent im Internet"
+		43	"Inhalt"
+
+	50  	"Aufgaben"
+		51  	"Als MIDI aufnehmen"
+		52  	"Tracks exportieren"
+		53  	"Tracks importieren"
+		54  	"Samples exportieren"
+		55		"Song assemblieren"
+	60  	"Information"
+		61  	"Spiel nicht bekannt"
+		62  	"Code nicht bekannt"
+		63  	"Erzeuger nicht bekannt"
+		64  	"Tagger nicht bekannt"
+		65  	"Gebildet durch: "
+		66  	"Getaggt von: "
+		67  	"Songtabelle: "
+
+	70		"Öffnet ein ROM zum Abspielen."
+	71		"Beendet das Programm."
+	72		"Spielt Musik mit dem alten MIDI-Treiber ab."
+	73		"Spielt Musik mit dem neuen Wave-Treiber ab."
+	74		"Spielt alle Musik mit Rechtecksamples."
+	75		"Informationen über dieses Programm."
+	76		"Besuch unsere Webseite!"
+
+	80  	"Speichert diesen Song als gewöhnliche MIDI-Datei."
+	81  	"Exportiert einen oder mehrere Tracks in diesem Song in Dateien."
+	82  	"Ersetzt einen oder mehrere Tracks in diesem Song mit Tracks aus Dateien."
+	83  	"Exportiert alle Sounds in Dateien."
+	84		"Assembliert MID2AGB-Ausgaben in die Binary."
+
+	90		"Tabelle"
+	91		"Header"
+	92		"Stimmen"
+	93		"Geschwindigkeit"
+
+	100 	"Playlist"
+	101 	"Song"
+	102 	"Bitte laden sie ein Spiel..."
+	103 	"Position"
+	104 	"Note"
+	105 	"Suche Songliste..."
+	106 	"Song #$INDEX"
+	107 	"Song #$INDEX - $NAME"
+	108 	"Keine Playlisten vorhanden"
+	109 	"Keine Songs vorhanden"
+	//Because Camelot sucks balls.
+	110		"Die automatische Erkennung funktioniert nicht mit ""Golden Sun""-Spielen.\n\nDas schließt folgende Spiele ein:\n""Golden Sun""\n""Golden Sun - The Lost Age""\n""Mario Golf Advance Tour""\n\nWir entschuldigen uns für entstehende Unannehmlichkeiten."
+	111		"Aus separater XML-Datei geladen."
+	204 	"Kann $XML nicht finden. Neue, leere Version anlegen?"
+	205	"Das Spiel, das sie geladen haben (Gamecode $CODE) ist dem Programm nicht bekannt.\n\nWollen sie nach der Songtabelle suchen?"
+	206	"Konnte Songtabelle nicht finden. Dieses Spiel benutzt M4A möglicherweise überhaupt nicht, oder zumindest eine unterschiedliche Version."
+	207 	"Songtabelle bei 0x$TBL gefunden. Speichere Skeletteintrag in XML-Datei, um neuerliche Ladevorgänge zu beschleunigen..."
+	208 	"Fehler in XML-Datei!\n\n$ERROR\n$CAUSE\n\nBitte berichtigen sie den Fehler und versuchen sie es nochmal."
+	209		"Ungültiger Gamecode - es sind alles Nullen!"
+	210		"Geben sie den Spieltitel ein:"
+	211		"Geben sie den Namen des Erzeugers ein:"
+	212		"Geben sie den Namen des Taggers ein:"
+
+	1000	"Einfach zu cool!"
+	1001	"Sappy 2006\n----------\nvon Kyoufu Kawa\n\nBasierend auf dem ursprünglichen Player\nvon Andrew Lim (DJ Bouche)\n\nEnthält Teile folgender zuvor von Kawa\ngeschriebener Tools:\n\ Maple (Sounddumper und Songtabellen-Scanner)\n\ Juicer (Trackdumper/-einfüger)\n\nDieses Produkt enthält\nvon vbAccelerator entwickelte Software.\n\n\nDank und Grüße an:\n\ Drag     \n\ Tony     \n\ Matt     \n\ Prime    \n\ Someguy  \n\ Jeff     \n\ Sakaki   \n\ Hapi-san \n\ Taco     \n\ Shii     \n\ Kotoko   \n\ Coke Lite\nund Mr. McMahon.\n\nZitat des Updates:                                 \n<FyNXeR> Pardon my spelling... but I'm from Sweden   \n<sumbody> pardon my accent, i am from southeast asia \n<DrMonkey> pardon my shotgun, i'm from west virginia \n\nhttp://helmetedrodent.kickassgamers.com\nhttp://board.acmlm.org                 \nhttp://www.vbaccelerator.com           \n\n<logos>"
+	1002	"Über das Programm"
+
+	2000	"Tracks importieren"
+	2001	"Bitte wählen sie die Tracks aus, die sie importieren möchten:"
+	2002	"Bitte entscheiden sie, wo sie die Tracks speichern möchten:"
+	2003	"Header"
+	2004	"Erster Track"
+	2005	"Trackoffsets"
+	2006	"Der zweite Track wird gleich nach dem ersten gespeichert. Header werden kopiert."
+	2007	"Sie müssen mindestens einen Track auswählen."
+	2008	"Sie müssen einen Offset auswählen, an dem der Track beginnt."
+	2009	"Sie müssen einen Headeroffset festlegen."
+	2010	"Bereite Trackimport vor..."
+	2011	"Importiere $FILE nach $TO..."
+	2012	"Speichere Header..."
+	2013	"Fertig. Wollen sie den richtigen Eintrag in der Songtable setzen?"
+	2016	"Stimmgruppe"
+
+	3000	"Tracks exportieren"
+	3001	"Wählen sie die Tracks aus, die sie exportieren möchten:"
+	3002	"Bestimmen sie, wo sie die Tracks speichern wollen:"
+	3003	"Tags"
+	3004	"Jede Instanz von $T wird mit der Nummer des aktuellen Tracks ersetzt. Gleicherweise wird $P mit dem Ursprungszeiger des Tracks ersetzt."
+	3005	"Sie müssen mindestens einen Track auswählen."
+	3006	"Sie müssen ein Dateinamenmuster eingeben."
+	3007	"Bereite Dumpen von Tracks vor..."
+	3008	"Dumpe Track $TRACK..."
+	3009	"Dumpe nach $FILE..."
+	3010	"Überspringe Track $TRACK."
+	3011	"Sie müssen ein komplettes Dateimuster bestimmen."
+
+	4000	".S-Datei assemblieren"
+	4001	".S-Dateiname"
+	4002	"Basis-Zieloffset"
+	4003	"Stimmgruppenoffset"
+	4004	"Los geht's!"
+	4005	"Sie müssen ein Basisoffset angeben."
+	4006	"Sie müssen ein Stimmgruppenoffset angeben."
+	4007	"Sie müssen einen Dateinamen angeben."
+
+	5000	"MIDI-Mapper"	// Title
+	5001	"Instrumente"	// --- Tabs
+	5002	"Drums"		// -/
+	5003	"Remappe nach"	// ---- Headers
+	5004	"Instrument"	// --/
+	5005	"Drum-Taste"	// -/
+	5006	"Transponieren"
+	5007	"Anhören"	// --- Buttons
+	5008	"Reset"		// -/
+
+	6000	"Einstellungen"
+	6001	"ROM-Datenbank"
+	6002	"Anzahl der Songwiederholungen"
+	6003	"(0 for unendliche)"
+	6004	"Zuletzt bearbeiteten ROM beim Starten laden"
+	6005	"Now Playing"
+	6006	"Now-Playing-Information für mIRC-Skript speichern"
+	6007	"Now-Playing-Information an MSN Messenger senden"
+	6008	"Interface"
+	6009	"Nervende Geräusche deaktivieren"
+	6010	"Nette Taskbar erzwingen"
+	6011	"Abspielen"
+	6012	"Skin"
+	6013	"Farbton"
+	6014	"Sättigung"
+	6015	"Taskleiste verbergen (classic mode)"
+
+	7000	"Samples exportieren"
+	7001	"Speichern unter"
+	7002	"Dateinamenmuster"
+	7003	"Dateiformate"
+	7004	"Dateinamenmuster" //the frame
+	7005	"Jede Instanz von $I wird mit der Instrumentstimmennummer ersetzt. Gleichermaßen wird $P mit dem Instrumentzeiger ersetzt."
+
+	7010	"Rohe Wellenformdateien (*.raw)"
+	7011	"Windows-Wave-Dateien (*.wav)"
+	7012	"ImpulseTracker-Samples (*.its)"
+	7013	"Sappy-Quelldateien (*.s)"
+	7020	"RAW-Dateien enthalten rohe, unbearbeitete PCM-Sounddaten und sonst nichts. Noch nicht mal einen Header. Sie können nicht loopen."
+	7021	"WAV-Dateien sind wie RAW, haben aber Header und können so wie sie sind ohne spezielle Tools abgespielt werden. Sie können nicht loopen."
+	7022	"ITS-Dateien können im ModPlug Tracker verwendet werden und erhalten den Original-Looppunkt des Samples."
+	7023	"Sappy-Quelldateien sind das Format, welches das Sappy-Toolkit benutzt. Sie sind in ARM-Assembler geschrieben, enthalten aber keinerlei echten Code, nur Daten und Anweisungen."
+	7030	"#MAPLE-EXPORTIERTES SAMPLE - BITTE ÜBERPRÜFEN SIE DIE HEADERWERTE!"
+
+	8000	"Analysiere Song..."
+	8001	"Fülle Samplepool..."
+	8002	"Schließe ab..."
+
+	9000	"MIDI-Gerät auswählen"
+	9001	"Hardwareport"
+	9002	"Synthesizer"
+	9003	"Rechteck-Synth"
+	9004	"FM Synth"
+	9005	"MS Midi Mapper"
+	9006	"HW Wavetable Synth"
+	9007	"Softwaresynthesizer"
+
+END
+
+#endif
+
+//--------------------------------------------------------------------------------------------------------//
+
+#ifndef NOREDHERRINGSPLEASE
+69 DIALOG DISCARDABLE  0, 0, 113, 49
+STYLE 0x80L | 0x80000000L | 0x00C00000L | 0x00080000L
+CAPTION "STOP!"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON	"Touch this",0,36,28,64,14,0x08000000L
+    ICON					"",1,7,7,21,20
+    LTEXT					"Hammer time!",2,36,9,64,16
+END
+#endif

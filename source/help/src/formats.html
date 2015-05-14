@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Data formats</title>
+<link rel="stylesheet" href="backsdk4.css">
+</head>
+<body topmargin="0">
+<table class="buttonbarshade" cellspacing=0><tr><td>&nbsp;</td></tr></table>
+<table class="buttonbartable" cellspacing=0><tr id="hdr"><td class="runninghead" nowrap>
+Sappy 2006: Hacker Stuff</td></tr></table>
+
+<h1>Data formats</h1>
+
+<p>
+	<h2>Samples</h2>
+	<table>
+		<tr><th>Type</th><th>Name</th><th>Description</th></tr>
+		<tr><td>u16</td><td>type</td><td>Not used</td></tr>
+		<tr><td>u16</td><td>stat</td><td>0x0000 for oneshot, 0x4000 for forward loop</td></tr>
+		<tr><td>u32</td><td>freq</td><td>"Normal" frequency &lt;&lt; 10</td></tr>
+		<tr><td>u32</td><td>loop</td><td>Loop start position in samples</td></tr>
+		<tr><td>u32</td><td>size</td><td>Total number of samples</td></tr>
+		<tr><td>s8</td><td>data[]</td><td>Size+1 samples in total. Last byte is zero for one-shots, same as loop pointer for looped samples.</td></tr>
+	</table>
+
+	<h2>Music headers</h2>
+	<table>
+		<tr><th>Type</th><th>Name</th><th>Description</th></tr>
+		<tr><td>u8</td><td>NumTrks</td><td>Number of tracks in the song</td></tr>
+		<tr><td>u8</td><td>NumBlks</td><td>Number of blocks (?)</td></tr>
+		<tr><td>u8</td><td>Priority</td><td></td></tr>
+		<tr><td>u8</td><td>Reverb</td><td></td></tr>
+		<tr><td>u32</td><td>Voicegroup</td><td>Pointer to instrument bank</td></tr>
+		<tr><td>u32...</td><td>Track</td><td>Pointers to tracks</td></tr>
+	</table>
+
+</p>
+
+<div class="footer">Built on Monday, March 7th, 2006</div>
+
+</body>

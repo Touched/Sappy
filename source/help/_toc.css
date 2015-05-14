@@ -1,0 +1,14 @@
+body
+	{
+	padding: 0px;
+	background: #ffffff; 
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	}
+
+ul p, ol p, dl p
+	{
+	margin-left: 0em;
+	}
+

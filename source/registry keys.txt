@@ -1,0 +1,67 @@
+AutoAdvance
+	Doesn't do anything.
+
+Bar ... state
+	Collapsed/Expanded state of the ExplorerBar bars.
+
+Driver
+	Which driver to use.
+
+Force Nice Bar
+	Use system style or fake it out. Non-XP systems are faked by default.
+
+FMOD Volume
+	Volume at which to play the music when using the FMOD driver.
+
+Hide Bar
+	Hide the ExplorerBar completely. Makes the player look like Bouché's original. Tasks can be selected from the menu, but ROM information is unavailable.
+
+Incessant Sound Override
+	Don't play any Incessant Sounds if true.
+
+Last ROM
+	Full file name of the last ROM you opened.
+
+MIDI Device
+	Index of the MIDIOUT device to use.
+
+MIDI in GB Mode
+	Replaces all instruments with square and saw-waves if set.
+
+mIRC Now Playing
+	Write Now Playing information to sappy.stt. Use sappy.mrc to show this during IRC sessions.
+
+MSN Now Playing
+	Send Now Playing information to MSN Messenger.
+
+Nice Menus
+	When enabled, use Office 2003 style white menus. When disabled, use older style gray menus.
+
+Reload ROM
+	Reload the file specified in "Last ROM" when starting up.
+
+Seek by Playlist
+	When enabled, the Previous/Next buttons go by playlist entries instead of raw song numbers.
+
+Settings Page
+	The index of the current page on the Settings window. Quick re-entry.
+
+Skin
+	Skin # to use.
+
+Skin Hue
+Skin Saturation
+	Colorizing values for the skin
+
+Song Repeats
+	Determines the number of times to repeat playback.
+
+Window Height
+	Height of the main window in twips.
+
+Window Font
+Window Font Size
+	Allows you to change the font used in the windows. Defaults to "Lucida Sans Unicode", 8 points.
+
+XML File
+	XML file to use.

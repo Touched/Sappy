@@ -1,0 +1,36 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=..\..\sappy.chm
+Contents file=sappy.hhc
+Default Window=main
+Default topic=omfghelp.html
+Display compile progress=No
+Index file=Index.hhk
+Language=0x409 Engels (Verenigde Staten)
+Title=Sappy 2005
+
+[WINDOWS]
+main="Sappy 2005","sappy.hhc","Index.hhk","omfghelp.html",,,,,,0x2120,,0x380e,,,,,,,,0
+
+
+[FILES]
+transplant.html
+trackbytecode.html
+transplantedit.html
+mks4agb.html
+omfghelp.html
+jukecreds.html
+transplantimport.html
+transplantexport.html
+xml.html
+whatsnew.html
+jukebox.html
+midistandard.html
+foo.html
+registry.html
+
+[ALIAS]
+Compatibility=1.1 or later
+
+[INFOTYPES]
+

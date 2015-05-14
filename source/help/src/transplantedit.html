@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Edit voice commands</title>
+<link rel="stylesheet" href="backsdk4.css">
+</head>
+<body topmargin="0">
+<table class="buttonbarshade" cellspacing=0><tr><td>&nbsp;</td></tr></table>
+<table class="buttonbartable" cellspacing=0><tr id="hdr"><td class="runninghead" nowrap>
+Sappy 2006: Hacker Stuff</td></tr></table>
+
+<h1>Edit voice commands</h1>
+
+<p>Because instruments hardly ever match up between games, transplanted songs must be edited to use the target game's instruments. There are two steps to do this:
+<ul>
+	<li>
+		Figure out which instruments to use.
+	</li>
+	<li>
+		Edit track data.
+	</li>
+</ul>
+</p>
+
+<p>
+To do step 1, open the target game and find a song that has the required instruments, or something close. Then press <i>Extract Samples</i> and make sure you use the <code>$I</code> file name pattern. Identify the instruments you want and write them down somewhere. This is only one of several methods.
+</p>
+
+<p>
+To do step 2, open each track file in a hex editor and find the <code>BD</code> bytes. They can often be found near the beginning of each file. The byte that follows it is the track's instrument. Replace these values with the ones you wrote down in step 1.
+</p>
+
+<div class="footer">Built on Friday, November 4th, 2005</div>
+
+</body>

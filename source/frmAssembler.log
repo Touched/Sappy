@@ -1,0 +1,14 @@
+Line 28: Class Sappy2k6.SkinButton of control Command2 was not a loaded control class.
+Line 48: Class Sappy2k6.SkinButton of control Command3 was not a loaded control class.
+Line 75: Class Sappy2k6.SkinButton of control Command1 was not a loaded control class.
+Line 29: The property name Cancel in Command2 is invalid.
+Line 35: The property name _ExtentX in Command2 is invalid.
+Line 36: The property name _ExtentY in Command2 is invalid.
+Line 46: The property name Caption in Command2 is invalid.
+Line 54: The property name _ExtentX in Command3 is invalid.
+Line 55: The property name _ExtentY in Command3 is invalid.
+Line 65: The property name Caption in Command3 is invalid.
+Line 76: The property name Default in Command1 is invalid.
+Line 82: The property name _ExtentX in Command1 is invalid.
+Line 83: The property name _ExtentY in Command1 is invalid.
+Line 93: The property name Caption in Command1 is invalid.

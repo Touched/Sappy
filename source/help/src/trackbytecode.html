@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Track byte code</title>
+<link rel="stylesheet" href="backsdk4.css">
+</head>
+<body topmargin="0">
+<table class="buttonbarshade" cellspacing=0><tr><td>&nbsp;</td></tr></table>
+<table class="buttonbartable" cellspacing=0><tr id="hdr"><td class="runninghead" nowrap>
+Sappy 2006: Track byte code</td></tr></table>
+
+<h1>Track byte code</h1>
+
+<p>
+
+<dl>
+	<dt><a name="w"></a>Wxx (0x80++)</dt>
+	<dd>Wait for the specified number of clock ticks</dd>
+
+	<dt><a name="fine"></a>FINE (0xB1)</dt>
+	<dd>Musical term. Ends the track.</dd>
+
+	<dt><a name="goto"></a>GOTO, label (0xB2)</dt>
+	<dd>Unconditional jump.</dd>
+
+	<dt><a name="patt"></a>PATT, label (0xB3)</dt>
+	<dd>Unconditional jump, but remembers where to return. Can be nested up to three times.</dd>
+
+	<dt><a name="pend"></a>PEND (0xB4)</dt>
+	<dd>Ends a pattern and returns to it's call source. Ignored if not called from somewhere.</dd>
+
+	<dt><a name="rept"></a>REPT, xx, label (0xB5)</dt>
+	<dd>Jumps to the specified label xx times. If xx is zero, it repeats ad infinitum like a GOTO. REPT commands cannot be nested, and cannot be specified in a MIDI sequencer.</dd>
+
+	<dt><a name="prio"></a>PRIO, xx (0xBA)</dt>
+	<dd>Sets the priority of the track. xx is from 0 to 255 when directly editing the .s file, 0 to 127 in a MIDI sequencer.</dd>
+
+	<dt><a name="tempo"></a>TEMPO, xx/2 (0xBB)</dt>
+	<dd>This sets the tempo of the entire song. xx is from 22 to 510.</dd>
+
+	<dt><a name="keysh"></a>KEYSH, xx (0xBC)</dt>
+	<dd>This modulates the key of the track. xx is from -128 to 127. This command cannot be specified in a MIDI sequencer.</dd>
+
+</dl>
+
+<p>The following commands are in "Running Status" mode. This allows operation from their parameters alone, which is good when a whole lot are seen in sequence, like a pitch bend or volume slide.</p>
+
+<dl>
+	<dt><a name="voice"></a>VOICE, xx (0xBD)</dt>
+	<dd>Selects a patch for this track. xx is from 0 to 127.</dd>
+
+	<dt><a name="vol"></a>VOL, xx (0xBC)</dt>
+	<dd>Sets the track volume. xx is from 0 to 127.</dd>
+
+	<dt><a name="pan"></a>PAN, xx (0xBF)</dt>
+	<dd>Sets the track's stereo pan position. xx is from -64 to 63, but if it's a CGB instrument, hardware restrictions limit you to just "left", "center" and "right".</dd>
+
+	<dt><a name="bend"></a>BEND, cV + xx (0xC0)</dt>
+
+	<dt><a name="bendr"></a>BENDR, xx (0xC1)</dt>
+
+	<dt><a name="lfos"></a>LFOS, xx (0xC2)</dt>
+
+	<dt><a name="lfodl"></a>LFODL, xx (0xC3)</dt>
+
+	<dt><a name="mod"></a>MOD, xx (0xC4)</dt>
+	<dd></dd>
+
+	<dt><a name="modt"></a>MODT, xx (0xC5)</dt>
+	<dd></dd>
+
+	<dt><a name="tune"></a>TUNE, cV + xx (0xC8)</dt>
+	<dd></dd>
+
+</dl>
+
+<p>These are note commands. They can be used seamlessly with Running Status commands because of their bytecodes.</p>
+
+<dl>
+
+	<dt><a name="nxx"></a>Nxx [, key [, vel]] (0xD0++)</dt>
+	<dd>Plays a note. xx is the note length from 00 to 96. 24 is a quarter note, 96 a whole. Key is in the "Cn3" format where the first character is the name of the note ("CDEFGAB"), the second either "n" for a natural or "s" for a sharp and the third the octave. There are also "minus octaves", written like "CnM2" and stuff. Octaves effectively range from M2 to 8. From CnM2 to Gn8 covers all 127 MIDI key numbers. Velocity ranges from 0 to 127, but unlike in MIDI, velocity 0 is <i>not</i> synonimous to "note off".</dd>
+
+	<dt><a name="eot"></a>EOT [, key] (0xCE)</dt>
+	<dd>Stops the matching TIE note.</dd>
+
+	<dt><a name="tie"></a>TIE [, key, [, vel]] (0xCF)</dt>
+	<dd>This note, which works just like Nxx, continues to sound until the next matching EOT command.</dd>
+
+</dl>
+
+<div class="footer">Built on Friday, November 4th, 2005</div>
+
+</body>
